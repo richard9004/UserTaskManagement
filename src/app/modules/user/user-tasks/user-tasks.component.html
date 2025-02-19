@@ -1,0 +1,47 @@
+<div class="container mt-4 mb-2 bg-light">
+    <h4>Task Listing</h4>
+    <hr />
+    <div class="mb-3">
+        <a class="btn btn-outline-primary" [routerLink]="['/users']"> User Listing</a>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Select Status</label>
+                <select class="form-select" [(ngModel)]="filterText">
+                    <option value="all">All</option>
+                    <option value="completed">Completed</option>
+                    <option value="incomplete">Incomplete</option>
+                </select>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<table class="table table-light">
+    <thead>
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Status</th>
+            <th scope="col">Change Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let task of tasks | filterTask: filterText">
+
+            <td>{{ task.title }}</td>
+            <td>
+                <span class="badge" [ngClass]="task.completed ? 'bg-success' : 'bg-danger'">
+                    {{ task.completed ? 'Completed' : 'Incomplete' }}
+                </span>
+            </td>
+            <td>
+                <input class="form-check-input" type="checkbox" value="" [checked]="task.completed"
+                    id="flexCheckDefault" (change)="handleChange($event, task.id)">
+
+            </td>
+
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,33 @@
+<div class="container mt-4 mb-2 bg-light">
+    <h4>User Listing</h4>
+    <hr />
+    <div class="row">
+        <div class="col-sm-4">
+            <button type="button" class="btn btn-success">
+                Total Users <span class="badge bg-dark">{{countUsers}}</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<table class="table table-light">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Company</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.company.name }}</td>
+            <td>
+                <a class="btn btn-outline-success" [routerLink]="['/users', user.id, 'tasks']">View Tasks</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
