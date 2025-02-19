@@ -29,5 +29,8 @@
                 <a class="btn btn-outline-success" [routerLink]="['/users', user.id, 'tasks']">View Tasks</a>
             </td>
         </tr>
+        <tr *ngIf="users.length==0">
+            <td colspan="4">No Users Found</td>
+        </tr>
     </tbody>
 </table>

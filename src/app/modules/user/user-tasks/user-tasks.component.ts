@@ -24,7 +24,7 @@ export class UserTasksComponent {
   filterText: string = 'all';
 
   ngOnInit(): void {
-
+  
     this.route.params.subscribe(params => {
       this.userId = params['userId'];
       this.checkUserExists(this.userId);
@@ -32,9 +32,7 @@ export class UserTasksComponent {
 
   }
 
-  //Checks if the user's tasks are already stored in the state.
-  //If tasks are found, they are loaded into the component.
-  //Otherwise, it fetches tasks from the API.
+  // Checks if the user's tasks exist in the state or fetches them if not
   checkUserExists(userId: number) {
 
     // Retrieve tasks for the user from the state
@@ -43,6 +41,7 @@ export class UserTasksComponent {
     // If tasks exist in the store, use them; otherwise, fetch from the API
     if (savedTasks.length > 0) {
       this.tasks = savedTasks;
+      console.log(this.tasks);
     } else {
       this.getUserTasks(userId);
     }
@@ -57,8 +56,7 @@ export class UserTasksComponent {
     });
   }
 
-  //Handles the checkbox change event to update the completion status of a task.
-  //Updates the state with the modified tasks.
+  // Updates the task's completion status and saves the updated tasks in the state
   handleChange(event: any, taskId: number) {
     let indexToUpdate = this.tasks.findIndex((task: any) => task.id === taskId);
     this.tasks[indexToUpdate].completed = event.target.checked;

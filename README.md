@@ -35,6 +35,14 @@ Followed the modular structure.
 - When going back and forth between the components (like from Task component to User component or to Home component), the completed (status) data is persisted. (If you refresh the page, data will be lost as it is not stored in localStorage, but you can navigate between components and data will be persisted.)
 - Added the count of users in the user listing.
 
+## Critical issues resolved
+- In task filter pipe, if not records found would not display due to pipe functionality. resolved it using this article https://stackoverflow.com/questions/48162079/using-ngif-along-with-angular4-custom-pipes
+
+- Lazy loading routes had issue wghen loading child routes, referred this patially and other source https://stackoverflow.com/questions/77482678/no-provider-for-httpclient 
+
+## Application deployed on Vercel
+https://user-task-management-sepia.vercel.app/
+
 
 
 
