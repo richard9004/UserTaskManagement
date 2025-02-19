@@ -1,4 +1,4 @@
-## Instalation
+## Installation
 
 - Changed the CLI version which was previously 18 on my local machine.
 - Installed the latest Angular CLI Version, Angular CLI: 19.1.7 and Angular: 19.1.6.
